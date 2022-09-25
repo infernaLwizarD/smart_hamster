@@ -8,6 +8,9 @@ gem "dotenv-rails"
 gem "devise"
 gem "pundit"
 gem "paranoia"
+gem "jquery-rails"
+gem "bootstrap", "~> 4.4.1"
+gem "font-awesome-sass", "~> 5.15.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
