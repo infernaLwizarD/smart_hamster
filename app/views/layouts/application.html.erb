@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>App</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
-  </head>
+  <title>SmartHumster</title>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
+</head>
+
+<body class="sidebar-mini">
+<div id="main-container" class="wrapper">
+  <%= render "layouts/lte/header" %>
+  <%= render "layouts/lte/sidebar" %>
+  <%= render "layouts/lte/content" %>
+  <%= render "layouts/lte/footer" %>
+</div>
+</body>
 </html>
