@@ -26,7 +26,7 @@
                 <span class="dropdown-item" style="padding-bottom: 10px;">
                     <div class="row">
                         <div class="col">
-                            <%#= lte_button_to({text: 'Профиль', icon: 'fa-address-card', path: user_path(current_user), class: 'btn-primary btn-block btn-sm'}) %>
+                            <%= lte_button_to({text: 'Профиль', icon: 'fa-address-card', path: user_path(current_user), class: 'btn-primary btn-block btn-sm'}) %>
                         </div>
                         <div class="col">
                             <%= lte_button_to({text: 'Выйти', icon: 'fa-sign-out-alt', path: destroy_user_session_path, method: 'delete', class: 'btn-warning btn-block btn-sm'}) %>
