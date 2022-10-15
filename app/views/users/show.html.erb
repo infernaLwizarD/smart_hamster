@@ -11,43 +11,36 @@
   ]
 %>
 
-<div class="card ">
-  <div class="card-header bg-primary">
-    <h3 class="card-title">Пользователь</h3>
+<div class="card card-primary">
+  <div class="card-header">
+    <h3 class="card-title m-0">Пользователь</h3>
     <div class="card-tools">
       <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
     </div>
   </div>
 
-  <div class="card-body table-responsive p-0">
-    <div id="element_container_user_form84617" class="element_container form-panel">
-      <table class="table table-in-card table-striped">
-        <tbody>
-        <tr>
-          <th>E-mail</th>
-          <td><%= @user.email %></td>
-        </tr>
-        <tr>
-          <th>Роль</th>
-          <td><%= @user.role.label %></td>
-        </tr>
-        </tbody>
-      </table>
+
+  <div class="card-body">
+    <div class="form-group">
+      <label>E-mail</label>
+      <div><%= @user.email %></div>
+    </div>
+    <div class="form-group">
+      <label>Роль</label>
+      <div><%= @user.role.label %></div>
     </div>
   </div>
 
   <div class="card-footer ">
-    <%# if can?(:update, @user) %>
-    <%= link_to(icon('fas', 'edit', 'Редактировать'), edit_user_path(@user), class: 'btn btn-primary') %>
-    <%# end %>
+    <% if policy(@user).update? %>
+      <%= link_to(icon('fas', 'edit', 'Редактировать'), edit_user_path(@user), class: 'btn btn-primary') %>
+    <% end %>
 
-    <%= link_to icon('fas', 'arrow-left', 'Назад'), users_path, class: 'btn btn-secondary' %>
+    <%= draw_back_button(path: users_path) %>
 
-    <%# if can?(:destroy, @user) %>
-    <%= link_to(icon('fas', 'trash-alt', 'Удалить'), @user,
-                method: :delete, data: { confirm: 'Вы уверены?' },
-                class: 'btn btn-danger float-right') %>
-    <%# end %>
+    <% if policy(@user).destroy? %>
+      <%= draw_delete_button(path: @user) %>
+    <% end %>
   </div>
 </div>
 
