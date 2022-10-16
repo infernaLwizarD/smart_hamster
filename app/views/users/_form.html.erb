@@ -8,6 +8,11 @@
     </div>
 
     <div class="card-body">
+      <%= render "users/shared/error_messages", resource: @user %>
+      <div class="form-group">
+        <%= form.label :username, "Имя пользователя" %>
+        <%= form.text_field :username, class: "form-control" %>
+      </div>
       <div class="form-group">
         <%= form.label :email, "Email" %>
         <%= form.text_field :email, class: "form-control" %>
@@ -20,10 +25,16 @@
       <div class="form-group">
         <%= form.label :password, "Пароль" %>
         <%= form.password_field :password, autocomplete: "off", class: "form-control" %>
-        <% unless action_new? %>
+        <% if @user.persisted? %>
           <small class="form-text text-muted">(Оставьте пустым если не хотите менять)</small>
         <% end %>
       </div>
+      <% unless @user.persisted? %>
+        <div class="form-group">
+          <%= form.label "Подтверждение пароля" %>
+          <%= form.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+      <% end %>
     </div>
 
     <div class="card-footer">

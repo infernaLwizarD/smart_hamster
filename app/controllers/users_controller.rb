@@ -55,6 +55,14 @@ class UsersController < ApplicationController
 
   def user_params
     params[:user].delete(:password) if params[:user][:password].blank?
-    params.require(:user).permit(:email, :role_id, :password)
+
+    attributes = [:username, :email, :password, :role_id]
+
+    if params[:action] == "create"
+      params[:user].delete(:password_confirmation) if params[:user][:password].blank?
+      attributes.push(:password_confirmation)
+    end
+
+    params.require(:user).permit(attributes)
   end
 end

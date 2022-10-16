@@ -25,6 +25,7 @@
           <thead>
           <tr>
             <th style="width:10px;">№</th>
+            <th>Имя пользователя</th>
             <th>E-mail</th>
             <th>Роль</th>
           </tr>
@@ -33,6 +34,7 @@
           <% @users.each_with_index do |user, index| %>
             <tr>
               <td><%= link_to index + 1, user %></td>
+              <td><%= link_to user.username, user %></td>
               <td><%= link_to user.email, user %></td>
               <td><%= link_to user.role.label, user %></td>
             </tr>

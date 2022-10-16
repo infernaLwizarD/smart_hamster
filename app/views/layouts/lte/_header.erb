@@ -15,12 +15,12 @@
         <li class="nav-item user-menu">
             <a href="#" class="nav-link" data-toggle="dropdown">
                 <i class="fas fa-user"></i>
-                <span class="d-none d-md-inline">&nbsp;<%= current_user.email %></span>
+                <span class="d-none d-md-inline">&nbsp;<%= current_user.username %></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <span class="dropdown-header" style="text-align:left;white-space:normal;">
-                    <span><b>Логин:</b> <%#= current_user.login %></span><br>
-                    <span><b>Роль:</b> <%= current_user.role.label %></span><br>
+                    <span><b>E-mail:</b><br><%= current_user.email %></span><br>
+                    <span><b>Роль:</b><br><%= current_user.role.label %></span><br>
                 </span>
                 <div class="dropdown-divider"></div>
                 <span class="dropdown-item" style="padding-bottom: 10px;">
