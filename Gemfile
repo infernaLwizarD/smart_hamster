@@ -12,6 +12,11 @@ gem "jquery-rails"
 gem "bootstrap", "~> 4.4.1"
 gem "font-awesome-sass", "~> 5.15.1"
 
+gem 'rubocop', require: false
+gem "rubocop-rails", require: false
+gem "rubocop-performance", require: false
+gem "rubocop-rspec", require: false
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
