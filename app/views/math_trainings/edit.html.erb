@@ -1,0 +1,13 @@
+<%
+  @breadcrumbs = [
+    {
+      title: 'Математический тренажёр',
+      path: math_trainings_path
+    },
+    {
+      title: 'Параметры'
+    },
+  ]
+%>
+
+<%= render 'form', back_path: math_training_path(@math_training) %>

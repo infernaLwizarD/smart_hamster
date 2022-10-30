@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_16_120018) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_26_112838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "math_trainings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "operations", default: [], array: true
+    t.integer "min_number", default: 0, null: false
+    t.integer "max_number", default: 100, null: false
+    t.integer "timer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_math_trainings_on_user_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "label"
@@ -44,4 +55,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_120018) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "math_trainings", "users"
 end

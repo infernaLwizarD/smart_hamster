@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     resources :users, except: %i[show edit update destroy]
   end
   resources :users, only: %i[show edit update destroy]
+
+  resources :math_trainings
 end
