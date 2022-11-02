@@ -65,18 +65,22 @@ module LteHelper
   end
 
   def draw_new_button(options)
+    options[:label] ||= 'Добавить'
+    options[:bg_class] ||= 'btn-light'
+    options[:icon] ||= 'plus'
     disabled = options[:disabled].present? ? ' disabled' : ''
 
     if options[:button].present?
       %(
       #{link_to(%(
-          <button type="button" class="btn btn-sm btn-light">
-            <i class="fas fa-plus"></i> Добавить
+          <button type="button" class="btn btn-sm #{options[:bg_class]}">
+            #{icon('fas', options[:icon], options[:label])}
           </button>
         ).html_safe, options[:path])}
       ).html_safe
     else
-      link_to(icon('fas', 'plus', 'Добавить'), options[:path], class: "btn btn-light btn-sm#{disabled}")
+      link_to(icon('fas', options[:icon], options[:label]), options[:path],
+              class: "btn #{options[:bg_class]} btn-sm#{disabled}")
     end
   end
   ###----###
