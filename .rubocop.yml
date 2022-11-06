@@ -1,6 +1,11 @@
 # This is the configuration used to check the rubocop source code.
 
 inherit_from: .rubocop_todo.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
 require:
   #  - rubocop/cop/internal_affairs
   - rubocop-performance
@@ -14,7 +19,6 @@ AllCops:
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
     - 'db/schema.rb'
-  #  TargetRubyVersion: 2.6
   SuggestExtensions: false
 
 #InternalAffairs/NodeMatcherDirective:
@@ -56,7 +60,7 @@ Naming/PredicateName:
     - def_node_search
 
 Rails:
-  Enabled: false
+  Enabled: true
 
 Style/FormatStringToken:
   # Because we parse a lot of source codes from strings. Percent arrays
@@ -152,15 +156,15 @@ RSpec/NestedGroups:
 
 
 Metrics/AbcSize:
-  Max: 21
+  Max: 30
   Exclude:
     - 'db/**/*'
 Metrics/BlockLength:
   Exclude:
-#    - '**/*.builder'
+    #    - '**/*.builder'
     - 'spec/**/*'
 Metrics/MethodLength:
-  Max: 15
+  Max: 30
   CountAsOne: ['array', 'hash', 'heredoc']
   Exclude:
     - 'db/**/*'
@@ -179,3 +183,18 @@ Style/GlobalStdStream:
 Layout/LineLength:
   Exclude:
     - 'config/**/*'
+
+
+Rails/ApplicationRecord:
+  Enabled: false
+Rails/ApplicationController:
+  Enabled: false
+Rails/BulkChangeTable:
+  Enabled: false
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'db/migrate/**/*'
+Rails/I18nLocaleTexts:
+  Enabled: false

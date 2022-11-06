@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :role_id, presence: true
   validates :username, :email, presence: true, uniqueness: true
-  validates_format_of :username, with: /^[a-zA-Z0-9_.]*$/, multiline: true
+  validates :username, format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
   validate :validate_username
 
   attr_writer :login
@@ -33,6 +33,6 @@ class User < ApplicationRecord
   private
 
   def validate_username
-    errors.add(:username, :invalid) if User.where(email: username).exists?
+    errors.add(:username, :invalid) if exists?(email: username)
   end
 end
