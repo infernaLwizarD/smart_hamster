@@ -30,6 +30,18 @@ class User < ApplicationRecord
     end
   end
 
+  def admin?
+    role_id == Role::ADMIN
+  end
+
+  def parent?
+    role_id == Role::PARENT
+  end
+
+  def hamster?
+    role_id == Role::HAMSTER
+  end
+
   private
 
   def validate_username
