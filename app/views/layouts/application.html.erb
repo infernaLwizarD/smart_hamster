@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Smart Humster</title>
+  <title>Smart Hamster</title>
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
+  <%= stylesheet_link_tag "application", media: 'all', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+  <% if content_for?(:head) %>
+    <%= yield :head %>
+  <% end %>
 </head>
 
 <body class="sidebar-mini text-monospace">

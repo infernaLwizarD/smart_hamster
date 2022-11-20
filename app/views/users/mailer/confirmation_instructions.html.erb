@@ -1,6 +1,6 @@
 <p>Здравствуйте <%= @resource.username %>!</p>
 
-<p>Данный email был указан при регистрации в приложении SmartHumster.</p>
+<p>Данный email был указан при регистрации в приложении Smart Hamster.</p>
 <p>Для подтверждения аккаунта пройдите по ссылке ниже:</p>
 
 <p><%= link_to 'Подтвердить', confirmation_url(@resource, confirmation_token: @token) %></p>
