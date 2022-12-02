@@ -10,3 +10,5 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.scss, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w( application.scss jquery3.min.js jquery_ujs.js bootstrap.min.js popper.js adminlte.js )
